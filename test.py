@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import sounddevice as sd
 from faster_whisper import WhisperModel
-
+from pointer import pointer
 # 1. Load Whisper model
 model = WhisperModel("base", device="cuda", compute_type="float16")
 
@@ -42,9 +42,8 @@ try:
         text = "".join(segment.text for segment in segments).strip().lower()
 
         if text:
-          if "plus" in text:
-            print("+")
           print(f"You said: {text}")
+          print(pointer(text))
 
         # Clear buffer for the next chunk
         audio_buffer = np.array([], dtype=np.float32)
