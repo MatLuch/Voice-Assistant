@@ -1,4 +1,4 @@
-from caucaltor import cauc
+from functions.caucaltor import cauc
 def pointer(text):
     ret = ""
     if "minus" or "plus" in text:
