@@ -71,9 +71,10 @@ try:
 
             if text:
                 print(f"You said: {text}")
-
-                result = pointer(text)
-
+                try:
+                    result = pointer(text)
+                except Exception:
+                    result = None
                 if result:
                     print(result)
                     speak(result)
