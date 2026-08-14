@@ -7,30 +7,29 @@ This project currently focuses on converting live microphone audio into text usi
 ## Current Features
 
 - Real-time microphone listening
-- Speech-to-text conversion using Faster Whisper
-- GPU acceleration using CUDA
-- Processes audio directly from memory
+- Speech-to-text conversion using Speach recogntion by Google
+- uses it to spend the audio to google servers to process
 - Fast voice command detection
 
 ## How It Works
 
-The assistant continuously listens through the microphone and collects small chunks of audio. Every few seconds, the audio is processed by the Whisper model and converted into text.
+The assistant continuously listens through the microphone and collects small chunks of audio. Every few seconds, the audio is processed by the speach model and converted into text.
 
 Example:
 
 User:
-"plus"
+"whats 10 - 20"
 
 Output:
-+
+-10
 
 ## Technologies Used
 
 - Python
-- Faster Whisper
+- Speach recogntion 
 - NumPy
 - SoundDevice
-- NVIDIA CUDA
+- edge-tts
 
 ## Future Plans
 

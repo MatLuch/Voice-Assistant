@@ -4,7 +4,7 @@ import numpy as np
 import sounddevice as sd
 from faster_whisper import WhisperModel
 from pointer import pointer
-from OldStuff.voiceSpeach import speak 
+from OldStuff.oldVoiceSpeach import speak 
 # Load Whisper model
 model = WhisperModel(
     "base",
