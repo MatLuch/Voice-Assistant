@@ -12,10 +12,10 @@ def cauc(text):
     if hold: 
         nums.append(int(hold))
 
-    if "plus" in text:
+    if "+" in text:
         answer = sum(nums)
 
-    elif "minus" in text:
+    elif "-" in text:
         answer = nums[0] - sum(nums[1:])
 
     return "the answer is: " + str(answer)

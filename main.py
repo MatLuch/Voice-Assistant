@@ -1,84 +1,50 @@
-import queue
-import sys
-import numpy as np
+import speech_recognition as sr
 import sounddevice as sd
-from faster_whisper import WhisperModel
+import numpy as np
 from pointer import pointer
-from speach import speak 
-# Load Whisper model
-model = WhisperModel(
-    "base",
-    device="cuda",
-    compute_type="float16"
-)
+from voiceSpeachTest import speak 
 
-sampleR = 16000
-chunkDur = 4
-q = queue.Queue()
+recognizer = sr.Recognizer()
 
+sample_rate = 16000
+seconds = 4
 
-def callback(indata, frames, time, status):
-    if status:
-        print(status, file=sys.stderr)
+while True:
+    input("Press Enter to speak: ")
 
-    q.put(indata.copy())
+    print("Listening...")
 
-
-audio_buffer = np.array([], dtype=np.float32)
-
-try:
-    with sd.InputStream(
-        samplerate=sampleR,
+    audio = sd.rec(
+        int(seconds * sample_rate),
+        samplerate=sample_rate,
         channels=1,
-        dtype="float32",
-        callback=callback
-    ):
+        dtype="int16"
+    )
 
-        while True:
-            x = input("Enter Y to speak: ").lower()
+    sd.wait()
 
-            if x != "y":
-                print("Please enter Y ")
-                continue
+    print("Processing...")
 
-            print("Listening...\n")
+    audio_data = sr.AudioData(
+        audio.tobytes(),
+        sample_rate,
+        2
+    )
 
-            # Clear old audio
-            while not q.empty():
-                q.get()
+    try:
+        text = recognizer.recognize_google(audio_data)
+        if text:
+            print("You said:", text)
+            try:
+                result = pointer(text)
+            except Exception:
+                result = None
+            if result: 
+                print(result)
+                speak(result)
 
-            audio_buffer = np.array([], dtype=np.float32)
+    except sr.UnknownValueError:
+        print("Could not understand")
 
-            # Record fresh audio for 2 seconds
-            while len(audio_buffer) < sampleR * chunkDur:
-                data = q.get()
-                audio_buffer = np.append(
-                    audio_buffer,
-                    data.flatten()
-                )
-
-            print("Processing...")
-
-            segments, _ = model.transcribe(
-                audio_buffer,
-                beam_size=1,
-                language="en"
-            )
-
-            text = "".join(
-                segment.text for segment in segments
-            ).strip().lower()
-
-            if text:
-                print(f"You said: {text}")
-                try:
-                    result = pointer(text)
-                except Exception:
-                    result = None
-                if result:
-                    print(result)
-                    speak(result)
-            print()
-
-except KeyboardInterrupt:
-    print("\nStopped.")
+    except sr.RequestError as e:
+        print("API error:", e)
