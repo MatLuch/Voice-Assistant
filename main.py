@@ -2,7 +2,7 @@ import speech_recognition as sr
 import sounddevice as sd
 import numpy as np
 from pointer import pointer
-from voiceSpeachTest import speak 
+from speach import speak 
 
 recognizer = sr.Recognizer()
 

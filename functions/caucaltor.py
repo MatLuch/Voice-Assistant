@@ -1,3 +1,5 @@
+import math
+import operator
 def cauc(text):
     nums = []
     hold = ""
@@ -18,4 +20,12 @@ def cauc(text):
     elif "-" in text:
         answer = nums[0] - sum(nums[1:])
 
+    elif "*" in text:
+        answer = math.prod(nums)
+
+    elif "/" in text:
+        answer = nums[0]
+        for num in nums[1:]:
+            answer /= nums 
+    
     return "the answer is: " + str(answer)
