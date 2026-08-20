@@ -4,7 +4,7 @@ import numpy as np
 import openwakeword
 from openwakeword.model import Model
 from pointer import pointer
-from speach import speak 
+from Speach import speak 
 
 recognizer = sr.Recognizer()
 
