@@ -1,5 +1,5 @@
 from google import genai
-client = genai.Client(api_key="APIKEY")
+client = genai.Client(api_key="API")
 outputSett = " reply in 2 sentences"
 
 chat = client.chats.create(

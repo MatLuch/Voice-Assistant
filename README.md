@@ -14,7 +14,7 @@ This project currently focuses on converting live microphone audio into text usi
 
 ## How It Works
 
-The assistant continuously listens through the microphone and collects small chunks of audio. Every few seconds, the audio is processed by the speach model and converted into text.
+The assistant is activate by a keyword then it will listen through the microphone and collects a small chunk of audio. the audio is then processed by the speach model and converted into text which is then processed one again and the answer is given.
 
 Example:
 
@@ -51,6 +51,7 @@ Gemini is called and its output is spoken
 - math functions
 - requests(for API's)
 - Gemini API
+- openwakeword
 
 ## Future Plans
 
