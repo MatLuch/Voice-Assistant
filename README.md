@@ -2,7 +2,7 @@
 
 A Python-based voice assistant that uses speech recognition and AI models to understand voice input in real time.
 
-This project currently focuses on converting live microphone audio into text using Faster Whisper with GPU acceleration. The goal is to continue expanding it into a full AI assistant that can interact with my computer, software, and hardware.
+This project currently focuses on converting live microphone audio into text using external speech recognition. The goal is to continue expanding it into a full AI assistant that can interact with my computer, software, and hardware.
 
 ## Current Features
 
@@ -10,6 +10,7 @@ This project currently focuses on converting live microphone audio into text usi
 - Speech-to-text conversion using Speach recogntion by Google
 - uses it to spend the audio to google servers to process
 - Fast voice command detection
+- can outsource questions to Gemini AI
 
 ## How It Works
 
@@ -23,6 +24,14 @@ User:
 Output:
 -10
 
+Example: 
+
+User: 
+"whats the weather in Toronto"
+
+Output:
+
+
 ## Technologies Used
 
 - Python
@@ -30,7 +39,9 @@ Output:
 - NumPy
 - SoundDevice
 - edge-tts
-
+- asyncio 
+- math functions
+- requests(for API's)
 ## Future Plans
 
 This project is still in development and will continue to gain more AI features.
