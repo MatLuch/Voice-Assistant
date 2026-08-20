@@ -1,9 +1,9 @@
 from google import genai
-client = genai.Client(api_key="API")
-outputSett = " reply in 2.5 sentences"
+client = genai.Client(api_key="APIKEY")
+outputSett = " reply in 1.5 sentences"
 
 chat = client.chats.create(
-    model="gemini-3.1-flash-lite"
+    model="gemini-3.5-flash-lite"
 )
 
 def ask_ai(text):

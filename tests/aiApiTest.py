@@ -1,10 +1,9 @@
 from google import genai
-from speach import speak
-client = genai.Client(api_key="API")
-outputSett = " reply in 2.5 sentences"
+client = genai.Client(api_key="APIKEY")
+outputSett = " reply in 2 sentences"
 
 chat = client.chats.create(
-    model="gemini-3.1-flash-lite"
+    model="gemini-3.5-flash-lite"
 )
 
 def ask_ai(text):
@@ -12,8 +11,8 @@ def ask_ai(text):
     return response.text
 
 
-
-user = "whats a gpu"
+print("ask ai Anything to test: ")
+user = input("")
 user += outputSett
 out = ask_ai(user)
-speak(out)
+print(out)
