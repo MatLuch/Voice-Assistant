@@ -1,6 +1,5 @@
 from functions.caucaltor import cauc
 from functions.weather import weathe
 from pointer import pointer
-from Speach import speak 
-# print(weathe("what's the weather in toronto?"))
-print(cauc("Whats the weather in Toronto"))
+from speach import speak 
+print(weathe("Whats the weather in Toronto"))

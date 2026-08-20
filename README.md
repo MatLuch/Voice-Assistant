@@ -30,7 +30,15 @@ User:
 "whats the weather in Toronto"
 
 Output:
+"The temperature is: 25"
 
+Example: 
+
+User: 
+"whats a GPU"
+
+Output:
+Gemini is called and its output is spoken
 
 ## Technologies Used
 
@@ -42,6 +50,8 @@ Output:
 - asyncio 
 - math functions
 - requests(for API's)
+- Gemini API
+
 ## Future Plans
 
 This project is still in development and will continue to gain more AI features.
