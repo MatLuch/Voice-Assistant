@@ -1,5 +1,5 @@
 from functions.caucaltor import cauc
-from functions.weather import tempature, rain, cloud
+from functions.weather import tempature, rain, cloud, weather
 from functions.Ai import ask_ai
 def pointer(text):
     ret = ""
@@ -11,6 +11,8 @@ def pointer(text):
         ret = rain(text) 
     elif "cloud" in text or "cloudy" in text:
         ret = cloud(text)
+    elif "weather" in text:
+        ret = weather(text)
     else: 
         ret = ask_ai(text)
     if ret is not None:

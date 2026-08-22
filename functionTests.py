@@ -1,5 +1,5 @@
 from functions.caucaltor import cauc
 from functions.weather import tempature
-from functions.weather import rain, cloud
+from functions.weather import rain, cloud, weather
 from pointer import pointer
-print(cloud("is it cloudy in Toronto"))
+print(weather("whats the weather in Toronto"))

@@ -65,3 +65,11 @@ def cloud(text):
         return f"The cloud cover is: {clouds}%"
     except Exception:
         return None
+
+def weather(text):
+    try:
+        weth = tempature(text) + "\n" + rain(text) + "\n" + cloud(text)
+
+        return weth  
+    except Exception:
+        return None 
