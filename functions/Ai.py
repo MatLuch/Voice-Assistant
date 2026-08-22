@@ -1,5 +1,5 @@
 from google import genai
-from API import *
+from info import *
 client = genai.Client(api_key=key)
 outputSett = " reply in 1.5 sentences"
 

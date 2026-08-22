@@ -5,6 +5,7 @@ import openwakeword
 from openwakeword.model import Model
 from pointer import pointer
 from speach import speak 
+from  info import *
 
 recognizer = sr.Recognizer()
 
@@ -38,8 +39,8 @@ while True:
                 model.reset()
                 break
     if stat:
-        print("welcome Mateo how can i assist you")
-        speak("welcome Mateo how can i assist you")
+        print("welcome " + name + " how can i assist you")
+        speak("welcome " + name + " how can i assist you")
         stat = False 
     print("Listening...")
 
