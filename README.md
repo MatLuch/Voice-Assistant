@@ -59,7 +59,7 @@ This project is still in development and will continue to gain more AI features.
 
 Some planned improvements include:
 
-- Opening applications using voice commands
+- Checking the weather
 - Creating custom shortcuts and automations
 - Controlling programs like VS Code, Chrome, Spotify, and other software
 - Adding a more advanced AI system for understanding natural language
@@ -68,7 +68,7 @@ Some planned improvements include:
 - Adding computer vision features using cameras
 - Creating a physical AI assistant/robot called Carrot that can interact with the real world
 
-The long-term goal is to build a personal AI assistant that can understand voice commands, perform tasks on a computer, control hardware, and use AI to make decisions.
+The long-term goal is to build a personal AI assistant that can understand voice commands, answer questions of all types, control hardware, and use AI to make decisions.
 
 ## Installation
 
