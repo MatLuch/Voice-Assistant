@@ -1,5 +1,6 @@
 import requests
 from functions.latiudeLongitudeFinder import latlongFinder
+
 def tempature(text):
     try:
         lat, lon = latlongFinder(text)
@@ -39,6 +40,28 @@ def rain(text):
 
         rainChance = data["daily"]["precipitation_probability_max"][0]
         rainAmm = data["daily"]["rain_sum"][0]
-        return f"The chance of rain today is {rainChance}% and expected rain is {rainAmm} mm"
+        return f"The chance of rain today is: {rainChance}% and expected rain is: {rainAmm} mm"
     except Exception:
         return None 
+
+def cloud(text):
+    try: 
+        lat, lon = latlongFinder(text)
+        url = "https://api.open-meteo.com/v1/forecast"
+
+        params = {
+            "latitude": lat,
+            "longitude": lon, 
+            "current": "cloud_cover",
+            "timezone" : "auto"
+        }
+
+        response = requests.get(url, params=params)
+
+        data = response.json()
+
+        clouds = data["current"]["cloud_cover"]
+
+        return f"The cloud cover is: {clouds}%"
+    except Exception:
+        return None

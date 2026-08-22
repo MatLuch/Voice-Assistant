@@ -22,7 +22,7 @@ CHUNK = 1280
 
 while True:
     model.reset()
-    print("listening for 'Hey jarvis")
+    print("listening for Hey jarvis")
 
     with sd.InputStream(samplerate=RATE, channels=1, dtype='int16', blocksize=CHUNK) as stream:
         while True:
