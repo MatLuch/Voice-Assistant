@@ -1,5 +1,5 @@
 from functions.caucaltor import cauc
-from functions.weather import weathe
+from functions.weather import tempature
+from functions.weather import rain
 from pointer import pointer
-from speach import speak 
-print(weathe("Whats the weather in Toronto"))
+print(rain("what's the temperature in Richmond Hill"))

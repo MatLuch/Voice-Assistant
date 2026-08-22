@@ -4,7 +4,7 @@ import numpy as np
 import openwakeword
 from openwakeword.model import Model
 from pointer import pointer
-from Speach import speak 
+from speach import speak 
 
 recognizer = sr.Recognizer()
 
@@ -33,10 +33,12 @@ while True:
 
             if prediction.get("hey_jarvis", 0) > 0.80:
                 if stat == False:
-                    print("\n Wake word detected! Triggering assistant")
+                    print("How can i assist you")
+                    speak("How can i assist you")
                 model.reset()
                 break
     if stat:
+        print("welcome Mateo how can i assist you")
         speak("welcome Mateo how can i assist you")
         stat = False 
     print("Listening...")
