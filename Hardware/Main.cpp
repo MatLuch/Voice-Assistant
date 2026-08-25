@@ -60,6 +60,7 @@ void loop(){
         tft.setTextColor(ILI9341_WHITE);
         tft.setCursor(100, 100);
         tft.print("Hello");
+        delay(2000);
     }
     tft.fillScreen(ILI9341_BLACK);
 }
