@@ -17,7 +17,6 @@ int getSerialValue() {
   return 0;
 }
 
-
 void FirstNameDraw(){     
     tft.setTextSize(3); 
     tft.setTextColor(ILI9341_CYAN); 
@@ -57,4 +56,10 @@ void loop(){
     if(value == 1){
         FirstNameDraw();
     }
+    else if(value == 2){
+        tft.setTextColor(ILI9341_WHITE);
+        tft.setCursor(100, 100);
+        tft.print("Hello");
+    }
+    tft.fillScreen(ILI9341_BLACK);
 }
