@@ -6,6 +6,7 @@ from openwakeword.model import Model
 from pointer import pointer
 from speach import speak 
 from  info import *
+from functions.serialTransmit import serialSend
 
 recognizer = sr.Recognizer()
 
@@ -35,11 +36,13 @@ while True:
             if prediction.get("hey_jarvis", 0) > 0.80:
                 if stat == False:
                     print("How can i assist you")
+                    serialSend(2)
                     speak("How can i assist you")
                 model.reset()
                 break
     if stat:
         print("welcome " + name + " how can i assist you")
+        serialSend(1)
         speak("welcome " + name + " how can i assist you")
         stat = False 
     print("Listening...")

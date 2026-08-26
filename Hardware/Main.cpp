@@ -8,7 +8,8 @@
  
 Adafruit_ILI9341 tft = Adafruit_ILI9341(cs, dc, rst); 
 String name = "Mateo"; 
- 
+
+//////////////////////////////////////////// Getting the Serial Value
 int getSerialValue() {
   if (Serial.available()) {
     return Serial.parseInt();
@@ -17,7 +18,8 @@ int getSerialValue() {
   return 0;
 }
 
-void FirstNameDraw(){     
+//////////////////////////////////////////// First Name Draw
+void FirstNameQuestionDraw(){     
     tft.setTextSize(3); 
     tft.setTextColor(ILI9341_CYAN); 
     int x = 20; 
@@ -40,9 +42,23 @@ void FirstNameDraw(){
         x += 12;  
         delay(100);  
     } 
- 
 } 
- 
+
+//////////////////////////////////////////// Regular 
+void RegNameQuestionDraw(){
+    tft.setTextSize(3);
+    tft.setTextColor(ILI9341_CYAN);
+    int x = 20; 
+    int y = 85; 
+    String text1 = "How can i assist you";
+    for(int i = 0; i < text1.length(); i++){
+        tft.setCursor(x,y);
+        tft.print(text1[i]);
+        x += 12;
+        delay(100);
+    }
+}
+
 void setup(){ 
     Serial.begin(115200);
     tft.begin(); 
@@ -54,13 +70,11 @@ void setup(){
 void loop(){ 
     int value = getSerialValue();
     if(value == 1){
-        FirstNameDraw();
+        tft.fillScreen(ILI9341_BLACK);
+        FirstNameQuestionDraw();
     }
     else if(value == 2){
-        tft.setTextColor(ILI9341_WHITE);
-        tft.setCursor(100, 100);
-        tft.print("Hello");
-        delay(2000);
+        tft.fillScreen(ILI9341_BLACK);
+        RegNameQuestionDraw();
     }
-    tft.fillScreen(ILI9341_BLACK);
 }

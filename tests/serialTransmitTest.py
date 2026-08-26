@@ -6,6 +6,7 @@ esp = serial.Serial("COM9", 115200)
 time.sleep(2)
 
 while True:
-    command = input("enter: ")
+    x = input()
+    command = str(x)
 
     esp.write((command + "\n").encode())
