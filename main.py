@@ -45,6 +45,7 @@ while True:
         serialSend(1)
         speak("welcome " + name + " how can i assist you")
         stat = False 
+    serialSend(3)
     print("Listening...")
 
     audio = sd.rec(

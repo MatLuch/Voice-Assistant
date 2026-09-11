@@ -59,6 +59,27 @@ void RegNameQuestionDraw(){
     }
 }
 
+//////////////////////////////////////////// Regular 
+void ListeningDraw(){
+    tft.setTextSize(3);
+    tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
+    int x = 45;
+    int y = 100;
+
+    for(int i = 0; i < 10; i++){
+        tft.setCursor(x, y);       
+        String displayText = "Listening";
+        int dots = i % 4; 
+        for(int d = 0; d < dots; d++){
+            displayText += ".";
+        }
+        while(displayText.length() < 12) {
+            displayText += " ";
+        }
+        tft.print(displayText);
+        delay(500);
+    }
+}
 void setup(){ 
     Serial.begin(115200);
     tft.begin(); 
@@ -76,5 +97,9 @@ void loop(){
     else if(value == 2){
         tft.fillScreen(ILI9341_BLACK);
         RegNameQuestionDraw();
+    }
+    else if(value == 3){
+        tft.fillScreen(ILI9341_BLACK);
+        ListeningDraw();
     }
 }
