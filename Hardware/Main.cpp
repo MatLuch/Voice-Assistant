@@ -6,17 +6,20 @@
 #define cs 5 
 #define dc 2 
 #define rst 4 
- 
+
+#define NeonGreen 0x3FE2
+#define NeonPink  0xF81F
+
 Adafruit_ILI9341 tft = Adafruit_ILI9341(cs, dc, rst); 
 String name = "Mateo"; 
 
 //////////////////////////////////////////// Getting the Serial Value
-int getSerialValue() {
+String getSerialValue() {
   if (Serial.available()) {
-    return Serial.parseInt();
+    return Serial.readStringUntil('\n');
   }
 
-  return 0;
+  return "";
 }
 
 //////////////////////////////////////////// First Name Draw
@@ -45,7 +48,7 @@ void FirstNameQuestionDraw(){
     } 
 } 
 
-//////////////////////////////////////////// Regular 
+//////////////////////////////////////////// Regular Name Draw
 void RegNameQuestionDraw(){
     tft.setTextSize(3);
     tft.setTextColor(ILI9341_CYAN);
@@ -60,10 +63,10 @@ void RegNameQuestionDraw(){
     }
 }
 
-//////////////////////////////////////////// Regular 
+//////////////////////////////////////////// Listening Draw
 void ListeningDraw(){
     tft.setTextSize(3);
-    tft.setTextColor(ILI9341_WHITE, ILI9341_BLACK);
+    tft.setTextColor(NeonGreen, ILI9341_BLACK);
     int x = 45;
     int y = 100;
 
@@ -81,6 +84,29 @@ void ListeningDraw(){
         delay(500);
     }
 }
+
+//////////////////////////////////////////// Sentence Draw
+void SentenceDraw(String text){
+    tft.setTextSize(2);
+    tft.setTextColor(NeonPink);
+    int x = 10;
+    int y = 50; 
+
+    for(int i = 0; i < text.length(); i++){
+        tft.setCursor(x,y);
+        tft.print(text[i]);
+
+        x += 12; 
+
+        if(x > 300){
+            x = 10; 
+            y += 20; 
+        }
+        delay(100);
+    }
+}
+
+/////////////////////////////////////////////////////////////////// The setup and loop
 void setup(){ 
     Serial.begin(115200);
     tft.begin(); 
@@ -90,17 +116,26 @@ void setup(){
 } 
  
 void loop(){ 
-    int value = getSerialValue();
-    if(value == 1){
-        tft.fillScreen(ILI9341_BLACK);
-        FirstNameQuestionDraw();
+    String value = getSerialValue();
+    value.trim();
+
+    if(value.length() == 1){
+        if(value[0] == '1'){
+            tft.fillScreen(ILI9341_BLACK);
+            FirstNameQuestionDraw();
+        }
+        else if(value[0] == '2'){
+            tft.fillScreen(ILI9341_BLACK);
+            RegNameQuestionDraw();
+        }
+        else if(value[0] == '3'){
+            tft.fillScreen(ILI9341_BLACK);
+            ListeningDraw();
+        }
     }
-    else if(value == 2){
+
+    else if(value.length() > 1){
         tft.fillScreen(ILI9341_BLACK);
-        RegNameQuestionDraw();
-    }
-    else if(value == 3){
-        tft.fillScreen(ILI9341_BLACK);
-        ListeningDraw();
+        SentenceDraw(value);
     }
 }

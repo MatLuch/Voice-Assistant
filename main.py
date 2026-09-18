@@ -36,16 +36,16 @@ while True:
             if prediction.get("hey_jarvis", 0) > 0.80:
                 if stat == False:
                     print("How can i assist you")
-                    serialSend(2)
+                    serialSend('2')
                     speak("How can i assist you")
                 model.reset()
                 break
     if stat:
         print("welcome " + name + " how can i assist you")
-        serialSend(1)
+        serialSend('1')
         speak("welcome " + name + " how can i assist you")
         stat = False 
-    serialSend(3)
+    serialSend('3')
     print("Listening...")
 
     audio = sd.rec(
@@ -75,6 +75,7 @@ while True:
                 result = None
             if result: 
                 print(result)
+                serialSend(result)
                 speak(result)
 
     except sr.UnknownValueError:
