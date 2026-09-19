@@ -58,7 +58,8 @@ while True:
     sd.wait()
 
     print("Processing...")
-
+    serialSend('4')
+    
     audio_data = sr.AudioData(
         audio.tobytes(),
         sample_rate,

@@ -30,6 +30,7 @@ void FirstNameQuestionDraw(){
     int y = 85;  
     String text1 = "Welcome " + name + " how can i"; 
     String text2 = "assist you"; 
+
     for(int i = 0; i < text1.length(); i++){ 
         tft.setCursor(x,y); 
         tft.print(text1[i]); 
@@ -55,6 +56,7 @@ void RegNameQuestionDraw(){
     int x = 20; 
     int y = 85; 
     String text1 = "How can i assist you";
+
     for(int i = 0; i < text1.length(); i++){
         tft.setCursor(x,y);
         tft.print(text1[i]);
@@ -65,24 +67,73 @@ void RegNameQuestionDraw(){
 
 //////////////////////////////////////////// Listening Draw
 void ListeningDraw(){
-    tft.setTextSize(3);
-    tft.setTextColor(NeonGreen, ILI9341_BLACK);
-    int x = 45;
-    int y = 100;
+    int ammDots = 0;
 
-    for(int i = 0; i < 10; i++){
-        tft.setCursor(x, y);       
+    while(!Serial.available()){
+        tft.setTextSize(3);
+        tft.setTextColor(NeonGreen, ILI9341_BLACK);
+        int x = 45;
+        int y = 100;
+
         String displayText = "Listening";
-        int dots = i % 4; 
-        for(int d = 0; d < dots; d++){
+
+        for(int i = 0; i < ammDots; i++){
             displayText += ".";
         }
-        while(displayText.length() < 12) {
+
+        while(displayText.length() < 12){
             displayText += " ";
         }
+
+        tft.setCursor(x,y);
         tft.print(displayText);
+        
+        ammDots++; 
+
+        if(ammDots > 3){
+            ammDots = 0; 
+        }
+
         delay(500);
     }
+}
+
+//////////////////////////////////////////// Procesing Draw
+void ProcessingDraw(){
+    tft.setTextSize(3);
+    tft.setTextColor(ILI9341_CYAN);
+    String displayText = "Processing: ";
+
+    int centerX = 45;
+    int centerY = 100; 
+    int radius = 40; 
+    int pushFactor = 100;
+
+    int positionsX[8] = {160, 188, 200, 188, 160, 132, 120, 132};
+    int positionsY[8] = {80, 92, 120, 148, 160, 148, 120, 92};
+
+    int dot = 0; 
+
+    tft.setCursor(10, 105);
+    tft.print(displayText);
+
+    while(!Serial.available()){
+
+        for(int i = 0; i < 8; i++){
+            tft.fillCircle(positionsX[i] + pushFactor, positionsY[i], 5, ILI9341_DARKGREY);
+        }
+
+        tft.fillCircle(positionsX[dot] + pushFactor, positionsY[dot], 5, NeonGreen);
+
+        dot++; 
+
+        if(dot >= 8){
+            dot = 0; 
+        }
+
+        delay(100);
+        tft.fillCircle(250, 120, 45, ILI9341_BLACK);
+    }    
 }
 
 //////////////////////////////////////////// Sentence Draw
@@ -92,17 +143,20 @@ void SentenceDraw(String text){
     int x = 10;
     int y = 50; 
 
-    for(int i = 0; i < text.length(); i++){
-        tft.setCursor(x,y);
-        tft.print(text[i]);
+        for(int i = 0; i < text.length(); i++){
+            if(!Serial.available()){
+                tft.setCursor(x,y);
+                tft.print(text[i]);
 
-        x += 12; 
+                x += 12; 
 
-        if(x > 300){
-            x = 10; 
-            y += 20; 
+                if(x > 300){
+                    x = 10; 
+                    y += 20; 
+                }
+
+                delay(100);
         }
-        delay(100);
     }
 }
 
@@ -112,7 +166,6 @@ void setup(){
     tft.begin(); 
     tft.setRotation(1); 
     tft.fillScreen(ILI9341_BLACK);
- 
 } 
  
 void loop(){ 
@@ -131,6 +184,10 @@ void loop(){
         else if(value[0] == '3'){
             tft.fillScreen(ILI9341_BLACK);
             ListeningDraw();
+        }
+        else if(value[0] == '4'){
+            tft.fillScreen(ILI9341_BLACK);
+            ProcessingDraw();
         }
     }
 

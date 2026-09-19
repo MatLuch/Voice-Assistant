@@ -68,7 +68,7 @@ def cloud(text):
 
 def weather(text):
     try:
-        weth = tempature(text) + "\n" + rain(text) + "\n" + cloud(text)
+        weth = tempature(text) + ", " + rain(text) + ", " + cloud(text)
 
         return weth  
     except Exception:
