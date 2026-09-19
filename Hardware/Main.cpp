@@ -55,7 +55,7 @@ void RegNameQuestionDraw(){
     tft.setTextColor(ILI9341_CYAN);
     int x = 20; 
     int y = 85; 
-    String text1 = "How can i assist you";
+    String text1 = "How can i assist you?";
 
     for(int i = 0; i < text1.length(); i++){
         tft.setCursor(x,y);

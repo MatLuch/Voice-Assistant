@@ -24,6 +24,7 @@ CHUNK = 1280
 
 while True:
     model.reset()
+    serialSend('5')
     print("listening for Hey jarvis")
 
     with sd.InputStream(samplerate=RATE, channels=1, dtype='int16', blocksize=CHUNK) as stream:
@@ -59,7 +60,7 @@ while True:
 
     print("Processing...")
     serialSend('4')
-    
+
     audio_data = sr.AudioData(
         audio.tobytes(),
         sample_rate,

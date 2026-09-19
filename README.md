@@ -1,8 +1,8 @@
 # Voice Assistant
 
-A Python-based voice assistant that uses speech recognition and AI models to understand voice input in real time.
+A Python-based voice assistant that uses speech recognition and AI models to understand voice input in real time mixed with a ESP32, C++ based hardware device
 
-This project currently focuses on converting live microphone audio into text using external speech recognition. The goal is to continue expanding it into a full AI assistant that can interact with my computer, software, and hardware.
+This project currently focuses on converting live microphone audio into text using external speech recognition. It can also interact with Hardware to display answers and more visually 
 
 ## Current Features
 
@@ -11,10 +11,13 @@ This project currently focuses on converting live microphone audio into text usi
 - uses it to spend the audio to google servers to process
 - Fast voice command detection
 - can outsource questions to Gemini AI
+- can answer weather questions using OpenMeteo
+- can do basic math 
+- has a screen that displayes what is currently happening 
 
 ## How It Works
 
-The assistant is activate by a keyword then it will listen through the microphone and collects a small chunk of audio. the audio is then processed by the speach model and converted into text which is then processed one again and the answer is given.
+The assistant is activate by a keyword then it will listen through the microphone and collects a small chunk of audio. the audio is then processed by the speach model and converted into text which is then processed once again which then decides what functions to use, using this the answer is given and showcased on the screen.
 
 Example:
 
@@ -51,22 +54,14 @@ Gemini is called and its output is spoken
 - math functions
 - requests(for API's)
 - Gemini API
+- OpenMeteo
 - openwakeword
+- ESP32
+- 2.4 Inch TFT LCD display
 
 ## Future Plans
 
 This project is still in development and will continue to gain more AI features.
-
-Some planned improvements include:
-
-- Checking the weather
-- Creating custom shortcuts and automations
-- Controlling programs like VS Code, Chrome, Spotify, and other software
-- Adding a more advanced AI system for understanding natural language
-- Adding memory so the assistant can remember information
-- Connecting it with hardware projects and smart devices
-- Adding computer vision features using cameras
-- Creating a physical AI assistant/robot called Carrot that can interact with the real world
 
 The long-term goal is to build a personal AI assistant that can understand voice commands, answer questions of all types, control hardware, and use AI to make decisions.
 
