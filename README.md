@@ -1,4 +1,4 @@
-# Voice Assistant
+# Voice Assistant info 
 
 A Python-based voice assistant that detects a wake word, processes speech in real time, handles calculator and weather commands, uses Gemini for general questions, responds with text-to-speech, and communicates with a C++ programmed ESP32 TFT display through serial communication.
 
@@ -121,3 +121,4 @@ Make sure these libraries are installed:
 
 Copy and paste code from Main.cpp to arduino ide and upload it
 
+## Video 
