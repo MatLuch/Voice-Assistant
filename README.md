@@ -105,7 +105,7 @@ Install all necessary libraries or make sure there installed with this:
 Make sure these libraries are installed:
 
 ```bash
-include <SPI.h> 
-include <Adafruit_GFX.h> 
-include <Adafruit_ILI9341.h> 
+<SPI.h> 
+<Adafruit_GFX.h> 
+<Adafruit_ILI9341.h> 
 ```
