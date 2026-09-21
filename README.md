@@ -107,6 +107,7 @@ key = "YourAPIKey"
 name = "YourName"
 com = "the COM your esp32 uses"
 ```
+---
 
 ### Hardware 
 
