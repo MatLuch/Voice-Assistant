@@ -1,31 +1,28 @@
 # Voice Assistant
 
-A Python-based voice assistant that uses speech recognition and AI models to understand voice input in real time mixed with a ESP32, C++ based hardware device
-
-This project currently focuses on converting live microphone audio into text using external speech recognition. It can also interact with Hardware to display answers and more visually 
+A Python-based voice assistant that detects a wake word, processes speech in real time, handles calculator and weather commands, uses Gemini for general questions, responds with text-to-speech, and communicates with a C++ programmed ESP32 TFT display through serial communication.
 
 ## Current Features
 
 - Real-time microphone listening
 - Speech-to-text conversion using Speach recogntion by Google
-- uses it to spend the audio to google servers to process
-- Fast voice command detection
+- sending audio to google servers to process into text rapidly
 - can outsource questions to Gemini AI
 - can answer weather questions using OpenMeteo
 - can do basic math 
-- has a screen that displayes what is currently happening 
+- has a screen that displayes what is currently happening with animations 
 
 ## How It Works
 
-The assistant is activate by a keyword then it will listen through the microphone and collects a small chunk of audio. the audio is then processed by the speach model and converted into text which is then processed once again which then decides what functions to use, using this the answer is given and showcased on the screen.
+The assistant is actived when it detects the wake word, it then listens through the microphone and records a short segment of audio. The audio is then converted into text using speech recognition. The text us then analayzed by the assistant's intent routing system. Caucaltor and weather requests are handeled by python functions, while general questions are send to Gemini. The response is the spoken aloud using text-to-speech, and serial commands are send to the ESP32 to update the TFT display. 
 
 Example:
 
 User:
-"whats 10 - 20"
+"whats 10 * 20"
 
 Output:
--10
+"the answer is 200"
 
 Example: 
 
@@ -33,7 +30,15 @@ User:
 "whats the weather in Toronto"
 
 Output:
-"The temperature is: 25"
+"The temperature is: 16.3, The chance of rain today is: 2% and expected rain is: 0.0 mm, The cloud cover is: 100%"
+
+Example: 
+
+User:
+"will it rain in Toronto:
+
+Output:
+"The chance of rain today is: 2% and expected rain is: 0.0 mm"
 
 Example: 
 
@@ -71,3 +76,14 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/MatLuch/Voice-Assistant.git
+
+## Wiring 
+
+ESP32: 3.3V -> TFT: BL 
+ESP32: 3.3V -> TFT: VCC
+ESP32: GND -> TFT: GND
+ESP32: GPIO 2 -> TFT: DC
+ESP32: GPIO 4 -> TFT: RST 
+ESP32: GPIO 5 -> TFT: CS 
+ESP32: GPIO 18 -> TFT: CLK
+ESP32: GPIO 23 -> TFT: DIN
