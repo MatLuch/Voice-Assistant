@@ -70,15 +70,6 @@ This project is still in development and will continue to gain more AI features.
 
 The long-term goal is to build a personal AI assistant that can understand voice commands, answer questions of all types, control hardware, and use AI to make decisions.
 
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/MatLuch/Voice-Assistant.git
-
-```
-
 ## Wiring 
 
 ```bash
@@ -90,4 +81,31 @@ ESP32: GPIO 4 -> TFT: RST
 ESP32: GPIO 5 -> TFT: CS 
 ESP32: GPIO 18 -> TFT: CLK
 ESP32: GPIO 23 -> TFT: DIN
+```
+
+## Installation
+
+# Software
+
+Clone the repository:
+
+```bash
+git clone https://github.com/MatLuch/Voice-Assistant.git
+
+```
+
+Install all necessary libraries or make sure there installed with this:
+
+```bash
+& "C:\Users\mateo\AppData\Local\Programs\Python\Python311\python.exe" -m pip install SpeechRecognition sounddevice numpy openwakeword edge-tts soundfile requests pyserial google-genai pyttsx3
+```
+
+# Hardware 
+
+Make sure these libraries are installed:
+
+```bash
+include <SPI.h> 
+include <Adafruit_GFX.h> 
+include <Adafruit_ILI9341.h> 
 ```

@@ -1,7 +1,8 @@
 import serial
 import time
+from info import *
 
-esp = serial.Serial("COM3", 115200)
+esp = serial.Serial(com, 115200)
 
 time.sleep(2)  
 
