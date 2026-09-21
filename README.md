@@ -121,4 +121,6 @@ Make sure these libraries are installed:
 
 Copy and paste code from Main.cpp to arduino ide and upload it
 
-## Video 
+## Demo Video
+
+[Watch my 1.5minute demo][https://github.com/MatLuch/Voice-Assistant/issues/1#issue-5532324452]
