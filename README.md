@@ -85,7 +85,7 @@ ESP32: GPIO 23 -> TFT: DIN
 
 ## Installation
 
-# Software
+### Software
 
 Clone the repository:
 
@@ -100,7 +100,7 @@ Install all necessary libraries or make sure there installed with this:
 & "C:\Users\mateo\AppData\Local\Programs\Python\Python311\python.exe" -m pip install SpeechRecognition sounddevice numpy openwakeword edge-tts soundfile requests pyserial google-genai pyttsx3
 ```
 
-# Hardware 
+### Hardware 
 
 Make sure these libraries are installed:
 
