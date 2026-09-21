@@ -77,8 +77,11 @@ Clone the repository:
 ```bash
 git clone https://github.com/MatLuch/Voice-Assistant.git
 
+```
+
 ## Wiring 
 
+```bash
 ESP32: 3.3V -> TFT: BL 
 ESP32: 3.3V -> TFT: VCC
 ESP32: GND -> TFT: GND
@@ -87,3 +90,4 @@ ESP32: GPIO 4 -> TFT: RST
 ESP32: GPIO 5 -> TFT: CS 
 ESP32: GPIO 18 -> TFT: CLK
 ESP32: GPIO 23 -> TFT: DIN
+```
