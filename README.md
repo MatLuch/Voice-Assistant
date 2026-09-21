@@ -100,6 +100,14 @@ Install all necessary libraries or make sure there installed with this:
 & "C:\Users\mateo\AppData\Local\Programs\Python\Python311\python.exe" -m pip install SpeechRecognition sounddevice numpy openwakeword edge-tts soundfile requests pyserial google-genai pyttsx3
 ```
 
+Create a file called info.py and follow this format:
+
+```bash
+key = "YourAPIKey"
+name = "YourName"
+com = "the COM your esp32 uses"
+```
+
 ### Hardware 
 
 Make sure these libraries are installed:
@@ -109,3 +117,6 @@ Make sure these libraries are installed:
 <Adafruit_GFX.h> 
 <Adafruit_ILI9341.h> 
 ```
+
+Copy and paste code from Main.cpp to arduino ide and upload it
+
