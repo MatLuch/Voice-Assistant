@@ -26,6 +26,6 @@ def cauc(text):
     elif "/" in text:
         answer = nums[0]
         for num in nums[1:]:
-            answer /= nums 
+            answer /= num 
     
     return "the answer is: " + str(answer)
