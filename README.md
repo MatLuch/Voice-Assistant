@@ -96,8 +96,14 @@ git clone https://github.com/MatLuch/Voice-Assistant.git
 
 Install all necessary libraries or make sure there installed with this:
 
+Windows:
 ```bash
-& "C:\Users\mateo\AppData\Local\Programs\Python\Python311\python.exe" -m pip install SpeechRecognition sounddevice numpy openwakeword edge-tts soundfile requests pyserial google-genai pyttsx3
+py -3.11 -m pip install SpeechRecognition sounddevice numpy openwakeword edge-tts soundfile requests pyserial google-genai pyttsx3
+```
+
+Mac or linux:
+```bash
+python3.11 -m pip install SpeechRecognition sounddevice numpy openwakeword edge-tts soundfile requests pyserial google-genai pyttsx3
 ```
 
 Create a file called info.py and follow this format:
